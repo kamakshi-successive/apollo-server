@@ -8,7 +8,7 @@ GraphQL is a syntax that describes how to ask for data, and is generally used to
 
 With GraphQL, the user is able to make a single call to fetch the required information rather than to construct several REST requests to fetch the same.
 
-![Image of GraphQL](/home/kamakshi/Desktop/graphql.png?raw=true "GraphQL Structure")
+![Image of GraphQL](./home/kamakshi/Desktop/graphql.png?raw=true "GraphQL Structure")
 
 A GraphQL query is a string that is sent to a server to be interpreted and fulfilled, which then returns JSON back to the client. GraphQL becomes a thin wrapper around your original application layer to improve performance.
 
