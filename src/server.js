@@ -1,5 +1,6 @@
 import Express from 'express'
 import { ApolloServer } from 'apollo-server-express'
+import Database from './libs/Database.js';
 
 export default class Server {
   constructor(config)
@@ -15,12 +16,20 @@ export default class Server {
     return this;
   }
   run(){
-    const { port, nodeEnv } = this.config;
-    this.app.listen(port, () => {
-      console.info(`Server started on port ${port} (${nodeEnv})`);
-    });
-    return this;
+    const { port, nodeEnv, mongoUrl } = this.config;
+    Database.open(mongoUrl)
+    .then((res) => {
+      this.app.listen(port, (err) => {
+        if (err) {
+          console.log(err);
+        }
+        console.info(`Server started on port ${port} (${nodeEnv})`);
+      }); 
+    })
+    .catch(err => console.log(err));
   }
+    
+  
   async setupApollo(schema) {
     const { app } = this;
     this.server = new ApolloServer({

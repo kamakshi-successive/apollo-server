@@ -28,13 +28,13 @@
     "express-graphql": "^0.12.0",
     "graphql": "^15.4.0",
     "merge-graphql-schemas": "^1.7.8",
+    "mongoose": "^5.11.11",
     "qs-middleware": "^1.0.3",
     "tslint": "^6.1.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@babel/node": "^7.12.10",
-    "nodemon": "^2.0.7"
+    "@babel/node": "^7.12.10"
   },
   "type": "module"
 }
