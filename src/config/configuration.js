@@ -4,7 +4,7 @@ config();
 const envVars = process.env;
 const configuration = Object.freeze({
     port: envVars.PORT,
-    nodeEnv: envVars.nodeEnv
+    nodeEnv: envVars.NODE_ENV
 });
 
 export default configuration;
