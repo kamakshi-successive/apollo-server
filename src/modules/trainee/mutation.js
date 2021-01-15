@@ -1,17 +1,25 @@
-import userInstance from '../../service/user.js'
+import pubsub from '../pubsub.js';
+import userInstance from '../../service/user.js';
+import constant from '../../libs/constant.js';
 
 export default {
     createTrainee: (parent, args, context) => {
         const { user } = args;
-        return userInstance.createUser(user);
+        const addedUser = userInstance.createUser(user);
+        pubsub.publish(constant.subscriptions.TRAINEE_ADDED, {traineeAdded: addedUser})
+        return addedUser;
     },
     updateTrainee: (parent, args, context) => {
         const { id, role } = args;
-        return userInstance.updateUser(id, role);
+        const updatedUser = userInstance.updateUser(user);
+        pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, {traineeUpdated: updatedUser})
+        return updatedUser;
     },
     deleteTrainee: (parent, args, context) => {
         const { id } = args;
-        return userInstance.deleteUser(id);
+        const deletedId = userInstance.deleteUser(id);
+        pubsub.publish(constant.subscriptions.TRAINEE_ADDED, {traineeDeleted: deletedId})
+        return deletedId;
     },
 }
 
@@ -30,4 +38,3 @@ export default {
 //       role
 //     }
 //   }
-
