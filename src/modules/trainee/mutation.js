@@ -16,36 +16,18 @@ export default {
 }
 
 
-
-// export default {
-//     addTrainee: (parent, args) => {
-//         let Trainee = new Trainee({
-//             id: args.id,
-//             name: args.name,
-//             email: args.email,
-//         });
-//         return Trainee.save();
-//     },
-//     updateTrainee: (parent, args) => {
-//         if (!args.id) return;
-//         return Trainee.findOneandUpdate(
-//             {
-//                 _id: args.id
-//             },
-//             {
-//                 $set: {
-//                     id: args.id,
-//                     name: args.name,
-//                     email: args.email,
-//                 }
-//             }, {new: true}, (err, Trainee) => {
-//                 if (err) {
-//                     console.log('Something went wrong when updating the Trainee Data');
-//                 }
-//                 else {
-//                     console.log('Successfully Updated Trainee Data')
-//                 }
-//             }
-//         )
+// mutation {
+//     updateTrainee(id: "2", name: "sasa", role: "ggg"){
+//       name
 //     }
-// }
+//   }
+
+// mutation{
+//     createTrainee(user: {name: "Kamakshi", email: "kamakshi@gmail.com", role: "Trainee"}){
+//       id,
+//       name,
+//       email,
+//       role
+//     }
+//   }
+

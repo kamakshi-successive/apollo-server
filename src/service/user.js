@@ -3,9 +3,6 @@ class User {
         this.users = new Map();
         this.id = 0;
     }
-    getAllUsers() {
-        return this.users;
-    }
     createUser(user) {
         this.id += 1;
         this.users.set(this.id, { ...user, id: this.id});
@@ -22,6 +19,9 @@ class User {
     }
     getUser(id) {
         return this.users.get(Number(id));
+    }
+    getAllUsers() {
+        return this.users.values();
     }
 }
 

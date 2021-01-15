@@ -6,14 +6,17 @@ import * as trainee from './trainee/index.js';
 const dirname = path.resolve();
 const typeArray = fileLoader(path.join(dirname, './**/*.graphql'));
 const typeDefs = mergeTypes(typeArray, { all: true });
+// console.log('getall', trainee.traineeQuery)
 
 export default {
     resolvers: {
         Query: {
             ...user.getMyProfile,
-            ...trainee.Query,
-            ...trainee.Mutation
+            ...trainee.traineeQuery
         },
+        Mutation: {
+            ...trainee.traineeMutation
+        }
     },
     typeDefs,
 };
