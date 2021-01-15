@@ -11,14 +11,14 @@ export default {
     },
     updateTrainee: (parent, args, context) => {
         const { id, role } = args;
-        const updatedUser = userInstance.updateUser(user);
+        const updatedUser = userInstance.updateUser(id, role);
         pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, {traineeUpdated: updatedUser})
         return updatedUser;
     },
     deleteTrainee: (parent, args, context) => {
         const { id } = args;
         const deletedId = userInstance.deleteUser(id);
-        pubsub.publish(constant.subscriptions.TRAINEE_ADDED, {traineeDeleted: deletedId})
+        pubsub.publish(constant.subscriptions.TRAINEE_DELETED, {traineeDeleted: deletedId})
         return deletedId;
     },
 }
