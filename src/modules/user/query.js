@@ -1,9 +1,8 @@
-// export default {
-//     getMyProfile: async(parent, args, context) => {
-//         return {
-//             const datasource: { userAPI} = context;
-//             const response = await userAPI.getMe();
-//             return response.data;
-//             }
-//     }
-// }
+export default {
+  loginUser: async (parent, args, context) => {
+    const { payload: { email, password } } = args;
+    const { dataSources: { userAPI } } = context;
+    const response = await userAPI.loginUser({ email, password });
+    return response.data;
+  }
+};
