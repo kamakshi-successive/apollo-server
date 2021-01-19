@@ -5,7 +5,7 @@ const envVars = process.env;
 const configuration = Object.freeze({
     port: envVars.PORT,
     nodeEnv: envVars.NODE_ENV,
-    mongoUrl: envVars.MONGO_URL
+    serviceUrl: envVars.SERVICE_URL
 });
 
 export default configuration;

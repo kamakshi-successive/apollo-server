@@ -1,1 +1,1 @@
-export { default as getMyProfile } from './query.js';
+export * as getMyProfile  from './query.js';

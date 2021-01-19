@@ -1,6 +1,7 @@
 import Express from 'express'
 import http, { createServer } from 'http';
 import { ApolloServer } from 'apollo-server-express'
+import { UserAPI } from './datasource/User.js';
 
 export default class Server {
   constructor(config)
@@ -15,7 +16,6 @@ export default class Server {
   bootstrap() {
     return this;
   }
-  
   run(){
     const { port, nodeEnv } = this.config;
       this.httpServer.listen(port, () => {
@@ -28,6 +28,11 @@ export default class Server {
     const { app } = this;
     this.server = new ApolloServer({
       ...schema,
+      datasource: () => {
+        return {
+          userAPI: new UserAPI()
+        }
+      },
       onHealthCheck: () => new Promise((resolve) => {
         resolve('I am Okay...');
       }),

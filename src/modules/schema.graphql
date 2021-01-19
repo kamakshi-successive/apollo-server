@@ -15,3 +15,8 @@ type Subscription {
   traineeUpdated: User!
   traineeDeleted: ID!   
 }
+
+type loginUser {
+  email: User!
+  password: User!
+}

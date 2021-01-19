@@ -18,6 +18,9 @@ export default {
         },
         Subscription: {
             ...trainee.traineeSubscription
+        },
+        loginUser: {
+            
         }
     },
     typeDefs,
