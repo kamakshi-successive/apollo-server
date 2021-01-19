@@ -1,1 +1,3 @@
-export { default as config } from './configuration';
+/* eslint-disable import/extensions */
+/* eslint-disable import/prefer-default-export */
+export { default as config } from './configuration.js';
