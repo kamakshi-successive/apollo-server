@@ -1,8 +1,7 @@
 export default {
-  loginUser: async (parent, args, context) => {
-    const { payload: { email, password } } = args;
+  getMyProfile: async (parent, args, context) => {
     const { dataSources: { userAPI } } = context;
-    const response = await userAPI.loginUser({ email, password });
+    const response = await userAPI.getMe();
     return response.data;
   }
 };

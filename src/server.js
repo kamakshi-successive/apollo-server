@@ -32,9 +32,10 @@ export default class Server {
     const { app } = this;
     this.server = new ApolloServer({
       ...schema,
-      datasource: () => ({
-        userAPI: new UserAPI()
-      }),
+      dataSources: () => {
+        const userAPI = new UserAPI();
+        return { userAPI };
+      },
       onHealthCheck: () => new Promise((resolve) => {
         resolve('I am Okay...');
       })
