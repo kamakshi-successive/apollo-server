@@ -36,6 +36,12 @@ export default class Server {
         const userAPI = new UserAPI();
         return { userAPI };
       },
+      context: ({ req }) => {
+        if (req) {
+          return { token: req.headers.authorization };
+        }
+        return {};
+      },
       onHealthCheck: () => new Promise((resolve) => {
         resolve('I am Okay...');
       })

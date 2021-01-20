@@ -4,3 +4,8 @@ type User {
     email: String!
     role: String!
 }
+type User1 {
+    _id: String
+    name: String
+    email: String
+}
