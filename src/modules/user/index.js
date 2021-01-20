@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable import/extensions */
-// import getMyProfile from './query.js';
-
+/* eslint-disable import/prefer-default-export */
 export { default as getMyProfile } from './query.js';
