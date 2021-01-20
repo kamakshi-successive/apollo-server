@@ -5,7 +5,6 @@ import path from 'path';
 import * as user from './user/index.js';
 import * as trainee from './trainee/index.js';
 
-console.log('get', user.getMyProfile);
 const dirname = path.resolve();
 const typeArray = fileLoader(path.join(dirname, './**/*.graphql'));
 const typeDefs = mergeTypes(typeArray, { all: true });

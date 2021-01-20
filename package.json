@@ -1,5 +1,5 @@
 {
-  "name": "apollo-server",
+  "name": "apolloserver",
   "version": "1.0.0",
   "description": "GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. GraphQL has three main characteristics:",
   "main": "index.js",
@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/kamakshikumari/apollo-server#readme",
   "dependencies": {
+    "apollo-server": "^2.19.2",
     "apollo-server-express": "^2.19.1",
     "connect": "^3.7.0",
     "dotenv": "^8.2.0",
@@ -59,6 +60,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
