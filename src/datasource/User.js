@@ -5,11 +5,10 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 import config from '../config/configuration.js';
 
-console.log('ser', config.serviceUrl);
-
 export default class UserAPI extends RESTDataSource {
   constructor() {
     super();
+    this.initialize(config);
     this.baseURL = `${config.serviceUrl}/api/user`;
   }
 
@@ -18,6 +17,8 @@ export default class UserAPI extends RESTDataSource {
   }
 
   loginUser(payload) {
+    console.log('pa', payload);
+    console.log('dsffd', this.post('/login', payload));
     return this.post('/login', payload);
   }
 }
