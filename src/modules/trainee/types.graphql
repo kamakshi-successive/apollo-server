@@ -1,9 +1,38 @@
-input CreateUserInput {
-    name: String!
-    email: String!
-    role: String!
+type Trainee {
+    id: String
+    name: String
+    email: String
+    role: String
+    password: String
+    originalId: String!
 }
-input LoginInput {
-    password: String!
-    email: String!
+
+type TraineeAll {
+    id: String
+    originalId: String
+    name: String
+    email: String
+    role: String
+    password: String
+    createdAt: String
+}
+
+input CreateUserInput {
+    name: String
+    email: String
+    role: String
+    password: String
+    id: String
+}
+
+input UpdateUserInput {
+    id: String 
+    name: String
+    email: String
+    role: String
+    password: String
+}
+
+input DeleteUserId {
+    originalId: String!
 }

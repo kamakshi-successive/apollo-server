@@ -3,6 +3,7 @@ import Express from 'express';
 import { createServer } from 'http';
 import { ApolloServer } from 'apollo-server-express';
 import UserAPI from './datasource/User.js';
+import TraineeAPI from './datasource/Trainee.js';
 
 export default class Server {
   constructor(config) {
@@ -34,7 +35,8 @@ export default class Server {
       ...schema,
       dataSources: () => {
         const userAPI = new UserAPI();
-        return { userAPI };
+        const traineeAPI = new TraineeAPI();
+        return { userAPI, traineeAPI };
       },
       context: ({ req }) => {
         if (req) {

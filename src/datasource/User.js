@@ -15,7 +15,7 @@ export default class UserAPI extends RESTDataSource {
   willSendRequest(request) {
     request.headers.set('Authorization', this.context.token);
   }
-  
+
   getMe() {
     return this.get('/me');
   }

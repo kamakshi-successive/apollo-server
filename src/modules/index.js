@@ -8,7 +8,7 @@ import * as trainee from './trainee/index.js';
 const dirname = path.resolve();
 const typeArray = fileLoader(path.join(dirname, './**/*.graphql'));
 const typeDefs = mergeTypes(typeArray, { all: true });
-console.log('user', user.Mutation);
+
 export default {
   resolvers: {
     Query: {

@@ -1,11 +1,11 @@
 type User {
-    id: ID!
-    name: String!
-    email: String!
-    role: String!
-}
-type User1 {
-    _id: String
+    id: ID
     name: String
     email: String
+    role: String
+}
+
+input LoginInput {
+    password: String!
+    email: String!
 }
