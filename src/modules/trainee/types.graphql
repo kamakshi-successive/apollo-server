@@ -17,6 +17,30 @@ type TraineeAll {
     createdAt: String
 }
 
+type CrTrainee {
+    status: String
+    message: String
+    result: data
+    }
+type data {
+    id: String
+    name: String
+    email: String
+    role: String
+    password: String
+    originalId: String!
+
+}
+
+type UpTrainee {
+    status: String
+    message: String
+    }
+
+type DelTrainee {
+    status: String
+    message: String
+    }
 input CreateUserInput {
     name: String
     email: String

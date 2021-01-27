@@ -5,6 +5,8 @@ import user from '../../service/user.js';
 export default {
   getTrainee: (parent, args) => {
     const { id } = args;
+    console.log('get Trainee id', id);
+    console.log('getTrainee', user.getUser(id));
     return user.getUser(id);
   },
   getAllTrainees: async (parent, args, context) => {

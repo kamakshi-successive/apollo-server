@@ -17,8 +17,7 @@ export default {
     });
     console.log('created data : ', response);
     pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: response.result });
-    const createTraineeResponse = JSON.stringify(response);
-    return createTraineeResponse;
+    return response;
   },
   updateTrainee: async (parent, args, context) => {
     console.log('args', args);
@@ -33,8 +32,8 @@ export default {
       id, dataToUpdate: { name, email, password }
     });
     console.log('update', response.result);
-    const updateTraineeResponse = JSON.stringify(response);
-    return updateTraineeResponse;
+    // const updateTraineeResponse = JSON.stringify(response);
+    return response;
   },
   deleteTrainee: async (parent, args, context) => {
     const { dataSources: { traineeAPI } } = context;
@@ -42,7 +41,7 @@ export default {
     const response = await traineeAPI.deleteTra(originalId);
     console.log('trainee deleted : ', response);
     pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: response.message });
-    const deleteTraineeResponse = JSON.stringify(response);
-    return deleteTraineeResponse;
+    // const deleteTraineeResponse = JSON.stringify(response);
+    return response;
   }
 };

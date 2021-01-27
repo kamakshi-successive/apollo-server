@@ -3,7 +3,6 @@
 /* eslint-disable no-console */
 
 import { RESTDataSource } from 'apollo-datasource-rest';
-import fetch from 'node-fetch';
 import config from '../config/configuration.js';
 
 export default class TraineeAPI extends RESTDataSource {
