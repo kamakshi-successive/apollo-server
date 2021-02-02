@@ -8,6 +8,17 @@ type Trainee {
 }
 
 type TraineeAll {
+   message: String
+   totalCount: Int
+   count: Int
+   data: [result]
+}
+
+input optionsInput {
+    skip: Int
+    limit: Int
+}
+type result {
     id: String
     originalId: String
     name: String
@@ -15,6 +26,7 @@ type TraineeAll {
     role: String
     password: String
     createdAt: String
+    createdBy: String
 }
 
 type CrTrainee {
@@ -22,6 +34,7 @@ type CrTrainee {
     message: String
     result: data
     }
+
 type data {
     id: String
     name: String
@@ -41,6 +54,7 @@ type DelTrainee {
     status: String
     message: String
     }
+
 input CreateUserInput {
     name: String
     email: String
@@ -50,7 +64,7 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-    id: String 
+    id: ID!
     name: String
     email: String
     role: String

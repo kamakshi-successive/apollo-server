@@ -11,8 +11,9 @@ export default {
   },
   getAllTrainees: async (parent, args, context) => {
     const { dataSources: { traineeAPI } } = context;
-    const response = await traineeAPI.getTrainees();
-    console.log('resp', response.data);
-    return response.data;
+    const { payload: { skip, limit } } = args;
+    const response = await traineeAPI.getTrainees({ skip, limit });
+    console.log('resp', response);
+    return response;
   }
 };

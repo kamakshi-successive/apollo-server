@@ -1,7 +1,7 @@
 type Query {
     getMyProfile: User!
     getTrainee(id: ID!): Trainee!
-    getAllTrainees: [TraineeAll]
+    getAllTrainees(payload: optionsInput): TraineeAll
 }
 
 type Mutation {
