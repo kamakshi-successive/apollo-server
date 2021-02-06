@@ -20,6 +20,7 @@ export default {
     return response;
   },
   updateTrainee: async (parent, args, context) => {
+    console.log('inside update trainee');
     console.log('args', args);
     const {
       payload: {
@@ -31,8 +32,8 @@ export default {
     const response = await traineeAPI.updateTra({
       id, dataToUpdate: { name, email, password }
     });
-    console.log('update', response.result);
-    // const updateTraineeResponse = JSON.stringify(response);
+    console.log('update', response);
+    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: response });
     return response;
   },
   deleteTrainee: async (parent, args, context) => {
@@ -40,7 +41,7 @@ export default {
     const { payload: { originalId } } = args;
     const response = await traineeAPI.deleteTra(originalId);
     console.log('trainee deleted : ', response);
-    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: response.message });
+    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: response });
     // const deleteTraineeResponse = JSON.stringify(response);
     return response;
   }

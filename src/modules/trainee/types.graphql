@@ -3,6 +3,7 @@ type Trainee {
     name: String
     email: String
     role: String
+    createdAt: String
     password: String
     originalId: String!
 }
@@ -41,18 +42,21 @@ type data {
     email: String
     role: String
     password: String
-    originalId: String!
+    originalId: String
+    createdAt: String
 
 }
 
 type UpTrainee {
     status: String
     message: String
+    data: data
     }
 
 type DelTrainee {
     status: String
     message: String
+    result: String
     }
 
 input CreateUserInput {
@@ -61,6 +65,7 @@ input CreateUserInput {
     role: String
     password: String
     id: String
+    
 }
 
 input UpdateUserInput {
