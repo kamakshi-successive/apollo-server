@@ -1,4 +1,4 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable import/extensions */
-/* eslint-disable import/prefer-default-export */
-export { default as getMyProfile } from './query.js';
+export { default as Query } from './query.js';
+export { default as Mutation } from './mutation.js';

@@ -1,6 +1,11 @@
 type User {
-    id: ID!
-    name: String!
+    id: ID
+    name: String
+    email: String
+    role: String
+}
+
+input LoginInput {
+    password: String!
     email: String!
-    role: String!
 }

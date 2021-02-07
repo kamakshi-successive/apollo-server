@@ -1,5 +1,76 @@
+type Trainee {
+    id: String
+    name: String
+    email: String
+    role: String
+    password: String
+    originalId: String!
+}
+
+type TraineeAll {
+   message: String
+   totalCount: Int
+   count: Int
+   data: [result]
+}
+
+input optionsInput {
+    skip: Int
+    limit: Int
+}
+type result {
+    id: String
+    originalId: String
+    name: String
+    email: String
+    role: String
+    password: String
+    createdAt: String
+    createdBy: String
+}
+
+type CrTrainee {
+    status: String
+    message: String
+    result: data
+    }
+
+type data {
+    id: String
+    name: String
+    email: String
+    role: String
+    password: String
+    originalId: String!
+
+}
+
+type UpTrainee {
+    status: String
+    message: String
+    }
+
+type DelTrainee {
+    status: String
+    message: String
+    }
+
 input CreateUserInput {
-    name: String!
-    email: String!
-    role: String!
+    name: String
+    email: String
+    role: String
+    password: String
+    id: String
+}
+
+input UpdateUserInput {
+    id: ID!
+    name: String
+    email: String
+    role: String
+    password: String
+}
+
+input DeleteUserId {
+    originalId: String!
 }

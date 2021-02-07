@@ -1,40 +1,47 @@
+/* eslint-disable no-console */
 /* eslint-disable import/extensions */
+
 import pubsub from '../pubsub.js';
-import userInstance from '../../service/user.js';
 import constant from '../../libs/constant.js';
 
 export default {
-  createTrainee: (parent, args) => {
-    const { user } = args;
-    const addedUser = userInstance.createUser(user);
-    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: addedUser });
-    return addedUser;
+  createTrainee: async (parent, args, context) => {
+    const { dataSources: { traineeAPI } } = context;
+    const {
+      payload: {
+        id, name, email, password, role
+      }
+    } = args;
+    const response = await traineeAPI.createTra({
+      id, name, email, password, role
+    });
+    console.log('created data : ', response);
+    pubsub.publish(constant.subscriptions.TRAINEE_ADDED, { traineeAdded: response.result });
+    return response;
   },
-  updateTrainee: (parent, args) => {
-    const { id, role } = args;
-    const updatedUser = userInstance.updateUser(id, role);
-    pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updatedUser });
-    return updatedUser;
+  updateTrainee: async (parent, args, context) => {
+    console.log('args', args);
+    const {
+      payload: {
+        id, name, email, password
+      }
+    } = args;
+    console.log('data', id, name, email, password);
+    const { dataSources: { traineeAPI } } = context;
+    const response = await traineeAPI.updateTra({
+      id, dataToUpdate: { name, email, password }
+    });
+    console.log('update', response.result);
+    // const updateTraineeResponse = JSON.stringify(response);
+    return response;
   },
-  deleteTrainee: (parent, args) => {
-    const { id } = args;
-    const deletedId = userInstance.deleteUser(id);
-    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: deletedId });
-    return deletedId;
+  deleteTrainee: async (parent, args, context) => {
+    const { dataSources: { traineeAPI } } = context;
+    const { payload: { originalId } } = args;
+    const response = await traineeAPI.deleteTra(originalId);
+    console.log('trainee deleted : ', response);
+    pubsub.publish(constant.subscriptions.TRAINEE_DELETED, { traineeDeleted: response.message });
+    // const deleteTraineeResponse = JSON.stringify(response);
+    return response;
   }
 };
-
-// mutation {
-//     updateTrainee(id: "2", name: "sasa", role: "ggg"){
-//       name
-//     }
-//   }
-
-// mutation{
-//     createTrainee(user: {name: "Kamakshi", email: "kamakshi@gmail.com", role: "Trainee"}){
-//       id,
-//       name,
-//       email,
-//       role
-//     }
-//   }

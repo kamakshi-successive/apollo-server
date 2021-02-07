@@ -1,7 +1,11 @@
+/* eslint-disable no-console */
 export default {
-  getMyProfile: () => ({
-    id: 1,
-    name: 'Kamakshi',
-    email: 'kamakshi.kumari@successive.tech'
-  })
+  getMyProfile: async (parent, args, context) => {
+    console.log('args', args);
+    const { dataSources: { userAPI } } = context;
+    const response = await userAPI.getMe();
+    // eslint-disable-next-line no-console
+    console.log('respose getmyprofile', response);
+    return response.data;
+  }
 };
