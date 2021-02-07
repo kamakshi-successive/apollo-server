@@ -16,9 +16,11 @@ export default class TraineeAPI extends RESTDataSource {
     request.headers.set('Authorization', this.context.token);
   }
 
-  getTrainees(data) {
+  async getTrainees(data) {
     console.log('this get', this.get());
-    return this.get('/', data);
+    const res = await this.get('/', data);
+    console.log('Datasource', res);
+    return res;
   }
 
   createTra(data) {

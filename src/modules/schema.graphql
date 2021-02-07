@@ -6,13 +6,13 @@ type Query {
 
 type Mutation {
     createTrainee(payload: CreateUserInput): CrTrainee!
-    updateTrainee(payload: UpdateUserInput): UpTrainee !
+    updateTrainee(payload: UpdateUserInput): UpTrainee
     deleteTrainee(payload: DeleteUserId): DelTrainee !
     loginUser(payload: LoginInput): String!
 }
 
 type Subscription {
   traineeAdded: Trainee!
-  traineeUpdated: Trainee!
-  traineeDeleted: ID!   
+  traineeUpdated: UpTrainee
+  traineeDeleted: DelTrainee!   
 }

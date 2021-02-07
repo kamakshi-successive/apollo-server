@@ -13,7 +13,7 @@ export default {
     const { dataSources: { traineeAPI } } = context;
     const { payload: { skip, limit } } = args;
     const response = await traineeAPI.getTrainees({ skip, limit });
-    console.log('resp', response);
+    console.log('query', response);
     return response;
   }
 };
