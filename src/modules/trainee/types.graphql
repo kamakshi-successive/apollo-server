@@ -56,7 +56,7 @@ type UpTrainee {
 type DelTrainee {
     status: String
     message: String
-    result: String
+    originalId: String
     }
 
 input CreateUserInput {
